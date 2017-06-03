@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cache</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <span style="word-wrap: break-word;"><b>Data file:&nbsp;</b>{{ data_file_path }}</span><br><br>
+        <button id="init" type="button" class="btn btn-default">Load Cache</button>
+        <button id="off" type="button" class="btn btn-default" onclick="{{ cache.save_to_file() }}" disabled>Shut down Cache</button><br><br>
+    </div>
+    <script>
+        $('#init').click(function() {
+            var table = document.createElement("Table");
+            table.className = "table table-striped table-bordered table-hover model-list";
+
+            var thead = document.createElement("thead");
+            var tr = document.createElement("tr");
+            var th1 = document.createElement("th");
+            th1.className = "column-header col-name";
+            th1.innerHTML = 'Student'
+
+            var th2 = document.createElement("th");
+            th2.className = "column-header col-name";
+            th2.innerHTML = 'Maths'
+
+            var th3 = document.createElement("th");
+            th3.className = "column-header col-name";
+            th3.innerHTML = 'Science'
+
+            var th4 = document.createElement("th");
+            th4.className = "column-header col-name";
+            th4.innerHTML = 'English'
+
+            var th5 = document.createElement("th");
+            th5.className = "column-header col-name";
+            th5.innerHTML = 'Total'
+
+            var th6 = document.createElement("th");
+            th6.className = "column-header col-name";
+            th6.innerHTML = 'Times Accessed'
+
+            tr.appendChild(th1);
+            tr.appendChild(th2);
+            tr.appendChild(th3);
+            tr.appendChild(th4);
+            tr.appendChild(th5);
+            tr.appendChild(th6);
+
+            thead.appendChild(tr);
+            table.appendChild(thead);
+
+            var tbody = document.createElement("tbody");
+
+            function plusCount(id){
+                    alert('Plus 1 ' + id);
+            };
+
+            {% for key, data in cache.cache_dict().items() %}
+                var tr1 = document.createElement("tr");
+                tr1.id = 'data_' + '{{ key }}'
+
+                var td1 = document.createElement("td");
+                td1.innerHTML = '{{ key }}'
+                tr1.appendChild(td1);
+
+                var td2 = document.createElement("td");
+                td2.innerHTML = '{{ data['value']['maths'] }}'
+                tr1.appendChild(td2);
+
+                var td3 = document.createElement("td");
+                td3.innerHTML = '{{ data['value']['science'] }}'
+                tr1.appendChild(td3);
+
+                var td4 = document.createElement("td");
+                td4.innerHTML = '{{ data['value']['english'] }}'
+                tr1.appendChild(td4);
+
+                var td5 = document.createElement("td");
+                td5.innerHTML = '{{ data['value']['total'] }}'
+                tr1.appendChild(td5);
+
+                var td6 = document.createElement("td");
+                td6.id = 'access_count_' + '{{ key }}'
+                td6.innerHTML = '{{ data['access_count'] }}'
+                tr1.appendChild(td6);
+
+                tbody.appendChild(tr1)
+            {% endfor %}
+
+            table.appendChild(tbody);
+            document.body.appendChild(table);
+            $(this).prop('disabled', true);
+            $('#off').prop('disabled', false);
+        });
+    </script>
+</body>
+</html>
