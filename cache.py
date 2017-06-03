@@ -26,9 +26,9 @@ class MyCache:
         if key not in self.cache and len(self.cache) >= self.max_cache_size:
             self.remove_least_accessed()
 
-        self.cache[key] = {'date_accessed': datetime.datetime.now(),
-                           'value': value,
-                           'access_count': 0}
+        self.cache[key] = value
+        self.cache[key]['date_accessed'] = datetime.datetime.now()
+        self.cache[key]['access_count'] = 0
 
     def access_key(self, key):
         if key in self.cache:
@@ -42,7 +42,7 @@ class MyCache:
         if len(self.cache) == 0:
             return self.cache
         else:
-            return OrderedDict(sorted(self.cache.items(), key=lambda x: x[1]['value']['total'], reverse=True))
+            return OrderedDict(sorted(self.cache.items(), key=lambda x: x[1]['total'], reverse=True))
 
     def save_to_file(self):
         cache_data = self.cache_dict()
