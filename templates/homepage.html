@@ -85,7 +85,7 @@
 
                 var td6 = document.createElement("td");
                 td6.id = 'access_count_' + '{{ key }}'
-                td6.innerHTML = '{{ data['access_count'] }}'
+                td6.innerHTML = '{{ cache.access_key(key) }}'
                 tr1.appendChild(td6);
 
                 tbody.appendChild(tr1)

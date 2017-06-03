@@ -28,12 +28,15 @@ class MyCache:
 
         self.cache[key] = {'date_accessed': datetime.datetime.now(),
                            'value': value,
-                           'access_count': 1}
+                           'access_count': 0}
 
     def access_key(self, key):
-        if key not in self.cache:
+        if key in self.cache:
             self.cache[key]['date_accessed'] = datetime.datetime.now()
-            self.cache['key']['access_count'] += 1
+            self.cache[key]['access_count'] += 1
+            return self.cache[key]['access_count']
+        else:
+            return 0
 
     def cache_dict(self):
         if len(self.cache) == 0:
