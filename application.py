@@ -47,7 +47,7 @@ def insert_new_record():
 @app.route('/shut_down')
 def shut_down():
     cache = current_app.config.get('CACHE')
-    cache.shut_down()
+    cache.shut_down(file_name=current_app.config.get('DATA_FILE'))
     current_app.config['CACHE'] = load_cache()
     message = 'Cache turned off successfully. Cached data saved to file.'
     flash(message=message, category='success')

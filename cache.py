@@ -50,16 +50,16 @@ class MyCache:
         else:
             return OrderedDict(sorted(self.cache.items(), key=lambda x: x[1]['total'], reverse=True))
 
-    def save_to_file(self):
+    def save_to_file(self, file_name):
         """
-        Save the cached items to JSON file
+        Save the cached items to the input file
         """
         cache_data = self.cache_dict()
         data = copy.deepcopy(cache_data)
         for key, value in data.items():
             value.pop('date_accessed')
             value.pop('access_count')
-        with open('test_1.json', 'w') as outfile:
+        with open(file_name, 'w') as outfile:
             json.dump(data, outfile)
         return data
 
@@ -76,11 +76,11 @@ class MyCache:
                 least_accessed_entry = key
         self.cache.pop(least_accessed_entry)
 
-    def shut_down(self):
+    def shut_down(self, file_name):
         """
         Save cache data to file then truncate it.
         """
-        self.save_to_file()
+        self.save_to_file(file_name)
         self.cache = dict()
 
     @property
