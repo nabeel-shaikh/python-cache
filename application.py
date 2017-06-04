@@ -44,7 +44,7 @@ def insert_new_record():
 def shut_down():
     cache = current_app.config.get('CACHE')
     cache.shut_down()
-    message = 'Cache turned off successfully. Restart server to reload cache data from file'
+    message = 'Cache turned off successfully. Cached data saved to file.'
     flash(message=message, category='success')
     return redirect(url_for('index'))
 
