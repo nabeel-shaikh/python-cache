@@ -29,9 +29,10 @@ The data file containing test student records is `student_data.json`.
     6. A modal form appears. Fill in the details and click on submit.
     7. Because all keys have access count equal, one will be randomly selected and replaced.
     8. You'll see the replaced key name in the Flash message that just appeared.
-    9. The new key added to the chat has an access count of 1 which means this should get replaced if we add
+    9. The new key added to the cache has an access count of 1 which means this should get replaced if we add
        another record.
    10. Repeat step 6 to find out. It works!
+   11. If you try to add a new key with an already existing name, it's value would get updated and no record would be deleted.
 ```
 
 > :)
