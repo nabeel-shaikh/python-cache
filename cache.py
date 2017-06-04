@@ -5,7 +5,7 @@ from collections import OrderedDict
 
 
 class MyCache:
-    """"""
+    """Cache implementation"""
 
     def __init__(self):
         """Constructor"""
@@ -21,7 +21,7 @@ class MyCache:
 
     def update(self, key, value):
         """
-        Update the cache dictionary and optionally remove the oldest item
+        Update the cache dictionary and optionally remove the least accessed item
         """
         if key not in self.cache and len(self.cache) >= self.max_cache_size:
             self.remove_least_accessed()
@@ -31,6 +31,9 @@ class MyCache:
         self.cache[key]['access_count'] = 0
 
     def access_key(self, key):
+        """
+        Access key from cache
+        """
         if key in self.cache:
             self.cache[key]['date_accessed'] = datetime.datetime.now()
             self.cache[key]['access_count'] += 1
@@ -39,12 +42,18 @@ class MyCache:
             return 0
 
     def cache_dict(self):
+        """
+        Store the items in an ordered dict fashion.
+        """
         if len(self.cache) == 0:
             return self.cache
         else:
             return OrderedDict(sorted(self.cache.items(), key=lambda x: x[1]['total'], reverse=True))
 
     def save_to_file(self):
+        """
+        Save the cached items to JSON file
+        """
         cache_data = self.cache_dict()
         data = copy.deepcopy(cache_data)
         for key, value in data.items():
@@ -68,6 +77,9 @@ class MyCache:
         self.cache.pop(least_accessed_entry)
 
     def shut_down(self):
+        """
+        Save cache data to file then truncate it.
+        """
         self.save_to_file()
         self.cache = dict()
 
@@ -77,21 +89,3 @@ class MyCache:
         Return the size of the cache
         """
         return len(self.cache)
-
-if __name__ == '__main__':
-    # Test the cache
-    data = dict()
-    with open('student_data.json') as data_file:
-        data = json.load(data_file)
-    cache = MyCache()
-    i = 0
-    for key in data.keys():
-        if key in cache:
-            continue
-        else:
-            value = data.get(key)
-            cache.update(key, value)
-        print("#%s iterations, #%s cached entries" % (i + 1, cache.size))
-        i += 1
-    print cache.cache.keys()
-
