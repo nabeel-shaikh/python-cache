@@ -1,12 +1,12 @@
 import os
-import json
 from flask import (
     Flask,
     render_template,
     request,
     redirect,
     url_for,
-    current_app
+    current_app,
+    flash
 )
 from config import set_app_config
 app = Flask(__name__)
@@ -35,6 +35,8 @@ def insert_new_record():
     value['total'] = value['maths'] + value['science'] + value['english']
     cache = current_app.config.get('CACHE')
     cache.update(key, value)
+    message = 'Record for {0} inserted into cache.'.format(str(key))
+    flash(message=message, category='success')
     return redirect(url_for('index'))
 
 if __name__ == '__main__':

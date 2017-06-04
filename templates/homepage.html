@@ -10,6 +10,16 @@
 <body>
     {% include 'modals/add-record.html' %}
     <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert alert-success">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {% for category, message in messages %}
+                        <strong>Success! </strong>{{ message }}. Click on Load cache to continue.</li>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
         <span style="word-wrap: break-word;"><b>Data file:&nbsp;</b>{{ data_file_path }}</span><br><br>
         <button id="init" title="Load cache" type="button" class="btn btn-default">Load cache</button>
         <button id="off" title="Shut down cache" type="button" class="btn btn-default" onclick="{{ cache.save_to_file() }}" disabled>Shut down cache</button>
