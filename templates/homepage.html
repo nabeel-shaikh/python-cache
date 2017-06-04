@@ -9,8 +9,9 @@
 <body>
     <div>
         <span style="word-wrap: break-word;"><b>Data file:&nbsp;</b>{{ data_file_path }}</span><br><br>
-        <button id="init" type="button" class="btn btn-default">Load Cache</button>
-        <button id="off" type="button" class="btn btn-default" onclick="{{ cache.save_to_file() }}" disabled>Shut down Cache</button><br><br>
+        <button id="init" title="Load cache" type="button" class="btn btn-default">Load cache</button>
+        <button id="off" title="Shut down cache" type="button" class="btn btn-default" onclick="{{ cache.save_to_file() }}" disabled>Shut down cache</button>
+        <button id="add" title="Add new record to cache" type="button" class="btn btn-default" disabled>+</button><br><br>
     </div>
     <script>
         $('#init').click(function() {
@@ -95,6 +96,7 @@
             document.body.appendChild(table);
             $(this).prop('disabled', true);
             $('#off').prop('disabled', false);
+            $('#add').prop('disabled', false);
         });
     </script>
 </body>
