@@ -22,7 +22,7 @@
         {% endwith %}
         <span style="word-wrap: break-word;"><b>Data file:&nbsp;</b>{{ data_file_path }}</span><br><br>
         <button id="init" title="Load cache" type="button" class="btn btn-default">Load cache</button>
-        <button id="off" title="Shut down cache" type="button" class="btn btn-default" onclick="{{ cache.save_to_file() }}" disabled>Shut down cache</button>
+        <button id="off" title="Shut down cache" type="button" class="btn btn-default" onclick="window.location.href='{{ url_for('shut_down') }}'" disabled>Shut down cache</button>
         <button id="add" title="Add new record to cache" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" disabled>+</button><br><br>
     </div>
     <script>

@@ -67,6 +67,10 @@ class MyCache:
                 least_accessed_entry = key
         self.cache.pop(least_accessed_entry)
 
+    def shut_down(self):
+        self.save_to_file()
+        self.cache = dict()
+
     @property
     def size(self):
         """
