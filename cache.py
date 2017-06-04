@@ -23,12 +23,14 @@ class MyCache:
         """
         Update the cache dictionary and optionally remove the least accessed item
         """
+        removed_key = None
         if key not in self.cache and len(self.cache) >= self.max_cache_size:
-            self.remove_least_accessed()
+            removed_key = self.remove_least_accessed()
 
         self.cache[key] = value
         self.cache[key]['date_accessed'] = datetime.datetime.now()
         self.cache[key]['access_count'] = 0
+        return removed_key
 
     def access_key(self, key):
         """
@@ -75,6 +77,7 @@ class MyCache:
                     'access_count']:
                 least_accessed_entry = key
         self.cache.pop(least_accessed_entry)
+        return least_accessed_entry
 
     def shut_down(self, file_name):
         """

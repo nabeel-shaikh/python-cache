@@ -38,8 +38,11 @@ def insert_new_record():
     value['english'] = int(request.form.get('english'))
     value['total'] = value['maths'] + value['science'] + value['english']
     cache = current_app.config.get('CACHE')
-    cache.update(key, value)
-    message = 'Record for {0} inserted into cache. Click on Load cache to continue.'.format(str(key))
+    removed_key = cache.update(key, value)
+    message = 'Record for {0} inserted into cache. {1} Click on Load cache to continue.'.format(
+        str(key),
+        "Removed record for {0}.".format(removed_key) if removed_key else ''
+    )
     flash(message=message, category='success')
     return redirect(url_for('index'))
 
