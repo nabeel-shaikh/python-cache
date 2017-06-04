@@ -8,15 +8,19 @@ from flask import (
     current_app,
     flash
 )
-from config import set_app_config
+from config import load_cache
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'jknasjknaejjajnasaskjnsa'
-set_app_config(app)
+app.config['DATA_FILE'] = 'student_data.json'
+app.config['CACHE'] = load_cache()
 
 
 @app.route('/')
 def index():
-    data_file_path = os.path.abspath('student_data.json')
+    data_file_path = os.path.abspath(
+        current_app.config.get('DATA_FILE')
+    )
     cache = current_app.config.get('CACHE')
     return render_template(
         'homepage.html',
@@ -44,6 +48,7 @@ def insert_new_record():
 def shut_down():
     cache = current_app.config.get('CACHE')
     cache.shut_down()
+    current_app.config['CACHE'] = load_cache()
     message = 'Cache turned off successfully. Cached data saved to file.'
     flash(message=message, category='success')
     return redirect(url_for('index'))
