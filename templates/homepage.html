@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Cache</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+    {% include 'modals/add-record.html' %}
     <div>
         <span style="word-wrap: break-word;"><b>Data file:&nbsp;</b>{{ data_file_path }}</span><br><br>
         <button id="init" title="Load cache" type="button" class="btn btn-default">Load cache</button>
         <button id="off" title="Shut down cache" type="button" class="btn btn-default" onclick="{{ cache.save_to_file() }}" disabled>Shut down cache</button>
-        <button id="add" title="Add new record to cache" type="button" class="btn btn-default" disabled>+</button><br><br>
+        <button id="add" title="Add new record to cache" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" disabled>+</button><br><br>
     </div>
     <script>
         $('#init').click(function() {
