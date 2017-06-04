@@ -5,18 +5,21 @@ from flask import (
     render_template,
     request,
     redirect,
-    url_for
+    url_for,
+    current_app
 )
 from cache import MyCache
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'jknasjknaejjajnasaskjnsa'
+cache = MyCache()
+app.config['CACHE'] = cache
 
 
 @app.route('/')
 def index():
     data_file_path = os.path.abspath('student_data.json')
     data = dict()
-    cache = MyCache()
+    cache = current_app.config.get('CACHE')
     with open('student_data.json') as data_file:
         data = json.load(data_file)
         i = 0
