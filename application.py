@@ -3,7 +3,9 @@ import json
 from flask import (
     Flask,
     render_template,
-    session
+    request,
+    redirect,
+    url_for
 )
 from cache import MyCache
 app = Flask(__name__)
@@ -31,6 +33,11 @@ def index():
         data_file_path=data_file_path,
         cache=cache
     )
+
+
+@app.route('/add_new_record', methods=['POST'])
+def insert_new_record():
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(host='localhost', port=3000, debug=True)

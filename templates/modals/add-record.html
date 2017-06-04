@@ -6,7 +6,7 @@
           <h4 class="modal-title">New record</h4>
         </div>
         <div class="modal-body">
-            <form action="{{ url }}" method="post" id="add_new_record" class="form-horizontal">
+            <form action="{{ url_for('insert_new_record') }}" method="post" id="add_new_record" class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="student">Student:</label>
                     <div class="col-sm-10">
