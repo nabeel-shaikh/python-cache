@@ -33,6 +33,7 @@ The data file containing test student records is `student_data.json`.
        another record.
    10. Repeat step 6 to find out. It works!
    11. If you try to add a new key with an already existing name, it's value would get updated and no record would be deleted.
+   12. The `Shut down cache` button would save the current cached data back to the file i.e. `student_data.json`.
 ```
 
 > :)
