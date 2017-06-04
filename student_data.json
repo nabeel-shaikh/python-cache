@@ -1,122 +1,122 @@
 {
 	"nabeel": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 299
+		"maths": 40,
+		"science": 40,
+		"english": 40,
+		"total": 120
 	},
 	"naim": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 298
+		"maths": 85,
+		"science": 85,
+		"english": 86,
+		"total": 256
 	},
 	"ashish": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 296
-	},
-	"abhay": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 297
-	},
-	"lalit": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 295
-	},
-	"poulami": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 293
-	},
-	"payal": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 294
-	},
-	"ratish": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 292
-	},
-	"ravi": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 291
-	},
-	"sachin": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 290
-	},
-	"umesh": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 289
-	},
-	"nirav": {
-		"maths": 99,
+		"maths": 93,
 		"science": 97,
 		"english": 98,
 		"total": 288
 	},
-	"prajwal": {
-		"maths": 99,
-		"science": 97,
+	"abhay": {
+		"maths": 76,
+		"science": 92,
 		"english": 98,
-		"total": 287
+		"total": 266
+	},
+	"lalit": {
+		"maths": 66,
+		"science": 56,
+		"english": 40,
+		"total": 162
+	},
+	"poulami": {
+		"maths": 80,
+		"science": 80,
+		"english": 80,
+		"total": 240
+	},
+	"payal": {
+		"maths": 70,
+		"science": 70,
+		"english": 70,
+		"total": 210
+	},
+	"ratish": {
+		"maths": 50,
+		"science": 50,
+		"english": 50,
+		"total": 150
+	},
+	"ravi": {
+		"maths": 60,
+		"science": 60,
+		"english": 60,
+		"total": 180
+	},
+	"sachin": {
+		"maths": 75,
+		"science": 75,
+		"english": 75,
+		"total": 225
+	},
+	"umesh": {
+		"maths": 85,
+		"science": 80,
+		"english": 50,
+		"total": 215
+	},
+	"nirav": {
+		"maths": 66,
+		"science": 66,
+		"english": 66,
+		"total": 198
+	},
+	"prajwal": {
+		"maths": 66,
+		"science": 66,
+		"english": 68,
+		"total": 200
 	},
 	"akshay": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 286
+		"maths": 70,
+		"science": 70,
+		"english": 61,
+		"total": 201
 	},
 	"rahil": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 285
+		"maths": 80,
+		"science": 80,
+		"english": 70,
+		"total": 230
 	},
 	"aqeel": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 284
+		"maths": 80,
+		"science": 87,
+		"english": 88,
+		"total": 255
 	},
 	"ajinkya": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 283
+		"maths": 88,
+		"science": 45,
+		"english": 43,
+		"total": 173
 	},
 	"sakaria": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 282
+		"maths": 77,
+		"science": 77,
+		"english": 89,
+		"total": 243
 	},
 	"pikachu": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 281
+		"maths": 87,
+		"science": 54,
+		"english": 45,
+		"total": 186
 	},
 	"raichu": {
-		"maths": 99,
-		"science": 97,
-		"english": 98,
-		"total": 280
+		"maths": 45,
+		"science": 45,
+		"english": 54,
+		"total": 144
 	}
 }
