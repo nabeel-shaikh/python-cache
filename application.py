@@ -35,7 +35,7 @@ def insert_new_record():
     value['total'] = value['maths'] + value['science'] + value['english']
     cache = current_app.config.get('CACHE')
     cache.update(key, value)
-    message = 'Record for {0} inserted into cache'.format(str(key))
+    message = 'Record for {0} inserted into cache. Click on Load cache to continue.'.format(str(key))
     flash(message=message, category='success')
     return redirect(url_for('index'))
 
@@ -44,7 +44,7 @@ def insert_new_record():
 def shut_down():
     cache = current_app.config.get('CACHE')
     cache.shut_down()
-    message = 'Cache turned off successfully'
+    message = 'Cache turned off successfully. Restart server to reload cache data from file'
     flash(message=message, category='success')
     return redirect(url_for('index'))
 
